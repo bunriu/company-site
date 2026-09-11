@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+  <style>
+    :root {
+      --bg: oklch(15% 0.012 50);
+      --bg-soft: oklch(18% 0.014 50);
+      --surface: oklch(21% 0.015 50);
+      --surface-2: oklch(25% 0.018 50);
+      --border: oklch(90% 0.01 50 / 0.12);
+      --border-strong: oklch(90% 0.01 50 / 0.22);
+      --text: oklch(96% 0.006 50);
+      --text-muted: oklch(74% 0.02 50);
+      --text-dim: oklch(56% 0.02 50);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Hiragino Sans','Meiryo',sans-serif; background: var(--bg); color: var(--text); }
+    h1, h2, h3 { font-family: 'Shippori Mincho','Yu Mincho','Hiragino Mincho ProN',serif; margin: 0; }
+    p { margin: 0; }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--text-muted); }
+    ul { margin: 0; padding: 0; list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .nav-links { display: flex; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+    .company-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; }
+    .notice-bar { display: flex; align-items: center; }
+    .notice-list { display: flex; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .company-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .notice-bar { align-items: flex-start; flex-direction: column; }
+      .notice-list { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;">
+
+  <!-- Header -->
+  <header style="position:sticky;top:0;z-index:50;background:var(--bg-soft);border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;padding:1.1rem clamp(1.25rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;">
+      <a href="#top" style="display:flex;align-items:center;gap:0.7rem;flex-shrink:0;">
+        <div style="width:32px;height:32px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border-strong);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;">
+          <svg width="13" height="13" viewBox="0 0 24 24" style="transform:rotate(-45deg);">
+            <polygon points="8 6 8 18 18 12" fill="{{accent}}"></polygon>
+          </svg>
+        </div>
+        <span style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:1.25rem;letter-spacing:0.02em;">くとー配信</span>
+      </a>
+      <ul class="nav-links" style="align-items:center;gap:2rem;">
+        <li><a href="#service" style="font-size:0.92rem;color:var(--text-muted);">サービス</a></li>
+        <li><a href="#feature" style="font-size:0.92rem;color:var(--text-muted);">特徴</a></li>
+        <li><a href="#price" style="font-size:0.92rem;color:var(--text-muted);">料金</a></li>
+        <li><a href="#device" style="font-size:0.92rem;color:var(--text-muted);">デバイス</a></li>
+        <li><a href="#company" style="font-size:0.92rem;color:var(--text-muted);">会社概要</a></li>
+      </ul>
+      <button style="background:{{accent}};color:oklch(20% 0.02 50);border:none;padding:0.65rem 1.4rem;border-radius:999px;font-size:0.88rem;font-weight:700;flex-shrink:0;">無料で始める</button>
+    </div>
+  </header>
+
+  <!-- Notice bar -->
+  <div style="background:var(--surface);border-bottom:1px solid var(--border);">
+    <div class="notice-bar" style="max-width:1200px;margin:0 auto;padding:0.85rem clamp(1.25rem,5vw,3rem);gap:1.4rem;">
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 19 5 19 19 3 13Z"></path><path d="M7 13 7 18 9.5 18.6"></path></svg>
+        <span style="font-size:0.8rem;font-weight:700;letter-spacing:0.05em;color:{{accent}};flex-shrink:0;">お知らせ</span>
+      </div>
+      <ul class="notice-list" style="gap:1.6rem;">
+        <li style="display:flex;align-items:baseline;gap:0.6rem;"><span style="font-size:0.78rem;color:var(--text-dim);flex-shrink:0;">2026.09.01</span><a href="#" style="font-size:0.85rem;color:var(--text-muted);">新作オリジナルドラマ「深夜のカフェ」配信開始</a></li>
+        <li style="display:flex;align-items:baseline;gap:0.6rem;"><span style="font-size:0.78rem;color:var(--text-dim);flex-shrink:0;">2026.08.15</span><a href="#" style="font-size:0.85rem;color:var(--text-muted);">プレミアムプランの同時視聴を最大5台に拡大</a></li>
+        <li style="display:flex;align-items:baseline;gap:0.6rem;"><span style="font-size:0.78rem;color:var(--text-dim);flex-shrink:0;">2026.08.01</span><a href="#" style="font-size:0.85rem;color:var(--text-muted);">Android TV版アプリをリニューアル</a></li>
+      </ul>
+      <a href="#" style="margin-left:auto;font-size:0.8rem;color:var(--text-dim);flex-shrink:0;white-space:nowrap;">お知らせ一覧 ›</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="top" style="padding:5.5rem 0 4rem;background:radial-gradient(ellipse 80% 60% at 50% -10%, oklch(24% 0.02 50) 0%, var(--bg) 65%);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div class="hero-grid" style="gap:3.5rem;">
+        <div>
+          <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;">
+            <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+            <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">KUTO STREAMING</span>
+          </div>
+          <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.35;font-weight:800;">今夜、最高の<br>一本と出会う。</h1>
+          <p style="margin-top:1.5rem;font-size:1.05rem;line-height:1.9;color:var(--text-muted);max-width:34rem;">くとー配信は、目利きの編集部が選び抜いた映画・ドラマ・アニメだけを届ける定額制動画配信サービスです。広告は一切なし、画質は4K HDR、解約はいつでも自由です。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.9rem;margin-top:2.2rem;">
+            <button style="background:{{accent}};color:oklch(20% 0.02 50);border:none;padding:0.95rem 1.9rem;border-radius:999px;font-size:0.98rem;font-weight:700;">7日間無料で試す</button>
+            <button style="background:transparent;color:var(--text);border:1px solid var(--border-strong);padding:0.95rem 1.9rem;border-radius:999px;font-size:0.98rem;font-weight:700;">料金プランを見る</button>
+          </div>
+          <p style="margin-top:1.1rem;font-size:0.82rem;color:var(--text-dim);">初回登録から7日間は無料。期間内の解約で料金はかかりません。</p>
+        </div>
+
+        <div style="position:relative;height:clamp(320px,32vw,440px);">
+          <div style="position:absolute;top:8%;left:0%;width:clamp(110px,25vw,168px);aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);border-radius:16px;transform:rotate(-7deg);box-shadow:0 20px 40px -12px rgba(0,0,0,0.5);padding:0.8rem;display:flex;flex-direction:column;justify-content:space-between;">
+            <span style="font-size:0.68rem;color:var(--text-dim);letter-spacing:0.05em;">アクション</span>
+            <svg width="26" height="26" viewBox="0 0 24 24" style="align-self:center;"><polygon points="8 6 8 18 18 12" fill="var(--text-dim)"></polygon></svg>
+            <span></span>
+          </div>
+          <div style="position:absolute;top:0%;left:32%;width:clamp(130px,29vw,200px);aspect-ratio:3/4;background:var(--surface-2);border:1px solid {{accent}};border-radius:16px;transform:rotate(3deg);box-shadow:0 24px 48px -12px rgba(0,0,0,0.55);padding:0.9rem;display:flex;flex-direction:column;justify-content:space-between;z-index:3;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <span style="font-size:0.68rem;color:var(--text-muted);letter-spacing:0.05em;">ヒューマンドラマ</span>
+              <span style="background:{{accent}};color:oklch(20% 0.02 50);font-size:0.62rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:999px;white-space:nowrap;">今週の注目</span>
+            </div>
+            <svg width="30" height="30" viewBox="0 0 24 24" style="align-self:center;"><polygon points="8 6 8 18 18 12" fill="{{accent}}"></polygon></svg>
+            <span></span>
+          </div>
+          <div style="position:absolute;top:34%;left:62%;width:clamp(100px,22vw,152px);aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);border-radius:16px;transform:rotate(-4deg);box-shadow:0 20px 40px -12px rgba(0,0,0,0.5);padding:0.75rem;display:flex;flex-direction:column;justify-content:space-between;z-index:2;">
+            <span style="font-size:0.65rem;color:var(--text-dim);letter-spacing:0.05em;">オリジナルアニメ</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" style="align-self:center;"><polygon points="8 6 8 18 18 12" fill="var(--text-dim)"></polygon></svg>
+            <span></span>
+          </div>
+          <div style="position:absolute;top:58%;left:6%;width:clamp(95px,21vw,146px);aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);border-radius:16px;transform:rotate(6deg);box-shadow:0 18px 36px -12px rgba(0,0,0,0.45);padding:0.7rem;display:flex;flex-direction:column;justify-content:space-between;z-index:1;">
+            <span style="font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;">ドキュメンタリー</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" style="align-self:center;"><polygon points="8 6 8 18 18 12" fill="var(--text-dim)"></polygon></svg>
+            <span></span>
+          </div>
+          <div style="position:absolute;top:52%;left:68%;width:clamp(90px,20vw,140px);aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);border-radius:16px;transform:rotate(-9deg);box-shadow:0 18px 36px -12px rgba(0,0,0,0.45);padding:0.7rem;display:flex;flex-direction:column;justify-content:space-between;z-index:1;">
+            <span style="font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;">サスペンス</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" style="align-self:center;"><polygon points="8 6 8 18 18 12" fill="var(--text-dim)"></polygon></svg>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <div style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.4rem 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);display:flex;flex-wrap:wrap;justify-content:center;gap:2.4rem;">
+      <span style="font-size:0.85rem;color:var(--text-muted);">4K HDR画質</span>
+      <span style="font-size:0.85rem;color:var(--text-muted);">広告なし</span>
+      <span style="font-size:0.85rem;color:var(--text-muted);">オフライン視聴</span>
+      <span style="font-size:0.85rem;color:var(--text-muted);">いつでも解約可能</span>
+      <span style="font-size:0.85rem;color:var(--text-muted);">同時視聴 最大5台</span>
+    </div>
+  </div>
+
+  <!-- Service -->
+  <section id="service" style="padding:6rem 0 5rem;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+        <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">SERVICE</span>
+      </div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;max-width:26rem;">選び抜かれた作品だけを。</h2>
+      <p style="margin-top:1.1rem;font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:38rem;">本数を追いません。編集部が本当に良いと思った映画・ドラマ・アニメだけを厳選し、公開しています。</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem;">
+          <div style="width:48px;height:48px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.2" y2="16.2"></line></svg>
+          </div>
+          <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:0.7rem;">目利きのセレクション</h3>
+          <p style="font-size:0.92rem;line-height:1.8;color:var(--text-muted);">月間ラインアップは平均120本。多すぎない本数だからこそ、迷わず選べます。</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem;">
+          <div style="width:48px;height:48px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="3" height="10" rx="1"></rect><rect x="10.5" y="4" width="3" height="16" rx="1"></rect><rect x="17" y="8" width="3" height="12" rx="1"></rect></svg>
+          </div>
+          <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:0.7rem;">圧倒的な画質・音響</h3>
+          <p style="font-size:0.92rem;line-height:1.8;color:var(--text-muted);">対応作品は4K HDR、Dolby Atmos立体音響に対応。自宅がそのまま特別な劇場に。</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem;">
+          <div style="width:48px;height:48px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6 20 11 C20 16 16.5 19.5 12 21 7.5 19.5 4 16 4 11 4 6Z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          </div>
+          <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:0.7rem;">広告なし・自由な解約</h3>
+          <p style="font-size:0.92rem;line-height:1.8;color:var(--text-muted);">視聴中の広告は一切なし。契約はいつでもオンラインで解約でき、違約金もありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="feature" style="padding:5rem 0;background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+        <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">FEATURES</span>
+      </div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;max-width:28rem;">くとー配信を支える機能</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.3rem;margin-top:3rem;">
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"></rect><line x1="8" y1="20" x2="16" y2="20"></line><line x1="12" y1="17" x2="12" y2="20"></line></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">4K HDR画質</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">映像美にこだわった高精細画質で、細部まで鮮やかに。</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 6 9 10 5 10 19 6 15 3 15Z" fill="var(--text)" stroke="none"></path><path d="M14 9 Q16.5 12 14 15"></path><path d="M17 6 Q22 12 17 18"></path></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">Dolby Atmos立体音響</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">対応デバイスでは全方位から音が届く臨場感のある音響体験。</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="14"></line><polyline points="7 10 12 15 17 10"></polyline><line x1="4" y1="19" x2="20" y2="19"></line></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">オフラインダウンロード</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">外出前にダウンロードして、通信環境を気にせず視聴。</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="9" rx="1.5"></rect><rect x="13.5" y="9.5" width="7.5" height="10.5" rx="1.5"></rect></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">最大5台同時視聴</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">プレミアムプランならご家族それぞれの画面で同時に視聴可能。</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M4 20c0-3 2.2-5 5-5s5 2 5 5"></path><circle cx="17.5" cy="9" r="2.2"></circle><path d="M14.8 20c0.1-2.2 1.6-3.7 3.5-3.7"></path></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">家族プロフィール</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">プロフィールごとに視聴履歴やおすすめを分けて管理。キッズ制限も。</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><line x1="3" y1="12" x2="21" y2="12"></line></svg>
+          <h3 style="font-size:1.05rem;font-weight:700;">多言語字幕・吹替</h3>
+          <p style="font-size:0.88rem;line-height:1.75;color:var(--text-muted);">日本語・英語をはじめ主要言語の字幕・吹替に対応。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="price" style="padding:6rem 0 5rem;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+        <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">PRICING</span>
+      </div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;">シンプルな料金プラン</h2>
+      <p style="margin-top:1.1rem;font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:34rem;">すべてのプランで広告なし。いつでもアップグレード・解約が可能です。</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem;margin-top:3rem;align-items:start;">
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.2rem;">
+          <h3 style="font-size:1.1rem;font-weight:700;">ベーシック</h3>
+          <p style="margin-top:1.2rem;font-size:2.2rem;font-weight:800;">¥790<span style="font-size:1rem;font-weight:500;color:var(--text-muted);">/月</span></p>
+          <ul style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1.6rem;">
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>画質 HD</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>同時視聴 1台</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>字幕・吹替対応</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-dim);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>ダウンロード不可</li>
+          </ul>
+          <button style="width:100%;margin-top:2rem;background:transparent;color:var(--text);border:1px solid var(--border-strong);padding:0.85rem 1.4rem;border-radius:999px;font-size:0.92rem;font-weight:700;">ベーシックで始める</button>
+        </div>
+
+        <div style="background:var(--surface-2);border:1px solid {{accent}};border-radius:20px;padding:2.2rem;position:relative;box-shadow:0 24px 48px -16px rgba(0,0,0,0.5);">
+          <span style="position:absolute;top:-0.8rem;left:2.2rem;background:{{accent}};color:oklch(20% 0.02 50);font-size:0.72rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:999px;">人気</span>
+          <h3 style="font-size:1.1rem;font-weight:700;">スタンダード</h3>
+          <p style="margin-top:1.2rem;font-size:2.2rem;font-weight:800;">¥1,290<span style="font-size:1rem;font-weight:500;color:var(--text-muted);">/月</span></p>
+          <ul style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1.6rem;">
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>画質 4K HDR</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>同時視聴 2台</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>オフラインダウンロード対応</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>字幕・吹替対応</li>
+          </ul>
+          <button style="width:100%;margin-top:2rem;background:{{accent}};color:oklch(20% 0.02 50);border:none;padding:0.85rem 1.4rem;border-radius:999px;font-size:0.92rem;font-weight:700;">スタンダードで始める</button>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.2rem;">
+          <h3 style="font-size:1.1rem;font-weight:700;">プレミアム</h3>
+          <p style="margin-top:1.2rem;font-size:2.2rem;font-weight:800;">¥1,890<span style="font-size:1rem;font-weight:500;color:var(--text-muted);">/月</span></p>
+          <ul style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1.6rem;">
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>画質 4K HDR + Dolby Atmos</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>同時視聴 5台</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>家族プロフィール 4つ</li>
+            <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 13 9 17 19 7"></polyline></svg>オフラインダウンロード対応</li>
+          </ul>
+          <button style="width:100%;margin-top:2rem;background:transparent;color:var(--text);border:1px solid var(--border-strong);padding:0.85rem 1.4rem;border-radius:999px;font-size:0.92rem;font-weight:700;">プレミアムで始める</button>
+        </div>
+
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--text-dim);">表示価格はすべて税込です。</p>
+    </div>
+  </section>
+
+  <!-- Devices -->
+  <section id="device" style="padding:5rem 0;background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+        <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">DEVICE</span>
+      </div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;">いつでも、どこでも。</h2>
+      <p style="margin-top:1.1rem;font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:34rem;">スマートフォンからテレビまで、お手持ちのデバイスでそのまま楽しめます。</p>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.6rem;margin-top:3rem;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">テレビ</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><line x1="10.5" y1="18.2" x2="13.5" y2="18.2"></line></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">スマートフォン</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.2"></rect><line x1="10.7" y1="18.3" x2="13.3" y2="18.3"></line></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">タブレット</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="1.5"></rect><path d="M2 19 22 19 20 15 4 15Z"></path></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">パソコン</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="5"></rect><line x1="7" y1="13" x2="7" y2="13"></line><line x1="6" y1="12" x2="6" y2="14"></line><line x1="5" y1="13" x2="8" y2="13"></line><circle cx="16" cy="11.5" r="0.9" fill="var(--text)" stroke="none"></circle><circle cx="18" cy="14" r="0.9" fill="var(--text)" stroke="none"></circle></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">ゲーム機</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;width:90px;">
+          <div style="width:56px;height:56px;border-radius:16px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="18" rx="3"></rect><circle cx="12" cy="8" r="1" fill="var(--text)" stroke="none"></circle></svg>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);text-align:center;">配信スティック</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="padding:5.5rem 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);text-align:center;">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;">今夜から、最高の一本を。</h2>
+      <p style="margin-top:1rem;font-size:1rem;color:var(--text-muted);">7日間無料でお試しいただけます。いつでも解約可能です。</p>
+      <button style="margin-top:2rem;background:{{accent}};color:oklch(20% 0.02 50);border:none;padding:1rem 2.4rem;border-radius:999px;font-size:1rem;font-weight:700;">7日間無料で始める</button>
+    </div>
+  </section>
+
+  <!-- Company -->
+  <section id="company" style="padding:5rem 0 6rem;background:var(--bg-soft);border-top:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:{{accent}};display:inline-block;"></span>
+        <span style="font-size:0.8rem;letter-spacing:0.14em;color:{{accent}};font-weight:700;">COMPANY</span>
+      </div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:2.5rem;">会社概要</h2>
+
+      <div class="company-grid" style="gap:3rem;">
+        <dl style="display:flex;flex-direction:column;">
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">会社名</dt>
+            <dd style="margin:0;font-size:0.92rem;">株式会社くとー配信</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">設立</dt>
+            <dd style="margin:0;font-size:0.92rem;">2019年4月1日</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">本社所在地</dt>
+            <dd style="margin:0;font-size:0.92rem;">東京都渋谷区</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">代表者</dt>
+            <dd style="margin:0;font-size:0.92rem;">代表取締役CEO 久遠 蒼</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">資本金</dt>
+            <dd style="margin:0;font-size:0.92rem;">3,000万円</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;border-bottom:1px solid var(--border);">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">事業内容</dt>
+            <dd style="margin:0;font-size:0.92rem;">有料動画配信サービス「くとー配信」の企画・運営</dd>
+          </div>
+          <div style="display:flex;padding:1rem 0;">
+            <dt style="width:9rem;flex-shrink:0;font-size:0.88rem;color:var(--text-dim);">従業員数</dt>
+            <dd style="margin:0;font-size:0.92rem;">128名（2026年4月現在）</dd>
+          </div>
+        </dl>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.2rem;align-self:start;">
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:1.1rem;">ミッション</h3>
+          <p style="font-size:0.95rem;line-height:2;color:var(--text-muted);">「本当に良いものだけを、最高の状態で。」<br>くとー配信は、情報が溢れる時代にこそ、良質な物語と丁寧に向き合う時間を届けたいと考えています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding:4rem 0 2rem;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);">
+      <div class="footer-grid" style="gap:2.5rem;">
+        <div>
+          <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;">
+            <div style="width:28px;height:28px;border-radius:7px;background:var(--surface-2);border:1px solid var(--border-strong);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;">
+              <svg width="11" height="11" viewBox="0 0 24 24" style="transform:rotate(-45deg);"><polygon points="8 6 8 18 18 12" fill="{{accent}}"></polygon></svg>
+            </div>
+            <span style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:1.1rem;">くとー配信</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-muted);max-width:16rem;line-height:1.8;">本当に良いものだけを、最高の状態で。</p>
+          <div style="display:flex;gap:0.8rem;margin-top:1.4rem;">
+            <a href="#" style="width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6.5c0 7.5-6 13.5-14 13.5-1.6 0-3-.3-4-.8 2.2-.2 4-1.3 5-2.7-1.8 0-3.2-1.2-3.7-2.7.6.1 1.1.1 1.7-.1-1.9-.4-3.2-2.1-3.2-4 .5.3 1.1.5 1.8.5C2.6 9.3 1.9 6.7 3.1 4.6c2 2.4 5 4 8.3 4.1-.6-2.6 1.4-5 4-5 1.2 0 2.3.5 3.1 1.3.9-.2 1.7-.5 2.5-1-.3.9-.9 1.7-1.7 2.2.8-.1 1.5-.3 2.2-.6-.5.8-1.2 1.5-1.9 2Z"></path></svg></a>
+            <a href="#" style="width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="0.6" fill="var(--text-muted)" stroke="none"></circle></svg></a>
+            <a href="#" style="width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="3.5"></rect><polygon points="10.5 9.3 10.5 14.7 15 12" fill="var(--text-muted)" stroke="none"></polygon></svg></a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:0.85rem;font-weight:700;margin-bottom:1.1rem;">サービス</p>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;">
+            <li><a href="#service" style="font-size:0.85rem;color:var(--text-muted);">サービス紹介</a></li>
+            <li><a href="#feature" style="font-size:0.85rem;color:var(--text-muted);">特徴</a></li>
+            <li><a href="#price" style="font-size:0.85rem;color:var(--text-muted);">料金プラン</a></li>
+            <li><a href="#device" style="font-size:0.85rem;color:var(--text-muted);">対応デバイス</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.85rem;font-weight:700;margin-bottom:1.1rem;">サポート</p>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;">
+            <li><a href="#" style="font-size:0.85rem;color:var(--text-muted);">ヘルプセンター</a></li>
+            <li><a href="#" style="font-size:0.85rem;color:var(--text-muted);">お問い合わせ</a></li>
+            <li><a href="#" style="font-size:0.85rem;color:var(--text-muted);">よくある質問</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.85rem;font-weight:700;margin-bottom:1.1rem;">会社</p>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;">
+            <li><a href="#company" style="font-size:0.85rem;color:var(--text-muted);">会社概要</a></li>
+            <li><a href="#" style="font-size:0.85rem;color:var(--text-muted);">採用情報</a></li>
+            <li><a href="#" style="font-size:0.85rem;color:var(--text-muted);">プレスリリース</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid var(--border);">
+        <span style="font-size:0.78rem;color:var(--text-dim);">© 2026 Kuto Haishin Co., Ltd. All rights reserved.</span>
+        <div style="display:flex;gap:1.4rem;">
+          <a href="#" style="font-size:0.78rem;color:var(--text-dim);">利用規約</a>
+          <a href="#" style="font-size:0.78rem;color:var(--text-dim);">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#e0a355","options":["#e0a355","#c9853a","#e8b878","#d9724a"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#e0a355' };
+  }
+}
+</script>
+</body>
+</html>
